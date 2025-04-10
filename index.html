@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Generator Tool</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <h1>Generate a Dr Note</h1>
+  <form id="pdfForm">
+    <div class="form-section">
+        <h2>Letterhead Input</h2>
+            <label for="bannerSource">Banner Image Source:</label>
+            <select id="bannerSource">
+                <option value="upload">File Upload</option>
+                <option value="link">Provide a Link</option>
+            </select>
+            <div id="bannerUploadContainer">
+                <label for="banner">Upload Banner Image:</label>
+                <input type="file" id="banner" accept="image/*" />
+            </div>
+            <div id="bannerLinkContainer" style="display: none;">
+                <label for="bannerLink">Image URL:</label>
+                <input type="url" id="bannerLink" placeholder="https://example.com/image.jpg" />
+            </div>
+    </div>
+    <div class="form-section">
+        <h2>Address & Phone Number Inputs</h2>
+            <label for="address">Address:</label>
+            <textarea id="address" rows="3" required></textarea>
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" required />
+    </div>
+
+    <div class="form-section">
+        <h2>Patient Info and Visit Inputs</h2>
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" required />
+
+            <label for="age">Age:</label>
+            <input type="text" id="age" required />
+
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" required />
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required />
+
+            <label for="visitDate">Date of Visit:</label>
+            <input type="date" id="visitDate" required />
+
+            <label for="throughDate">Through this Date:</label>
+            <input type="date" id="throughDate" required />
+    </div>
+
+    <div class="form-section">
+        <h2>Dr Note Inputs</h2>
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" required />
+
+            <label for="bodyChoice">Body Text:</label>
+            <select id="bodyChoice">
+                <option value="boiler">Boiler Plate Text</option>
+                <option value="custom">Customize Message</option>
+            </select>
+            <textarea id="customBody" rows="6" style="display:none;"></textarea>
+
+            <label for="signature">Signature:</label>
+            <input type="text" id="signature" required />
+    </div>
+
+    <button type="submit">Generate PDF</button>
+  </form>
+  <script src="index.js"></script>
+</body>
+</html>
